@@ -1,12 +1,16 @@
 import { Platform, StyleSheet, Text, TextInput, View } from "react-native";
+import React, { useState } from "react";
 import { colors, sizes } from "../constants";
 
-import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
 const RegisterForm = () => {
   const navigation = useNavigation();
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <View style={styles.container}>
       <View>
@@ -14,16 +18,23 @@ const RegisterForm = () => {
           style={styles.input}
           placeholder="Email"
           placeholderTextColor={colors.grey2}
+          value={email}
+          onChangeText={setEmail}
         />
         <TextInput
           style={styles.input}
           placeholder="Username"
           placeholderTextColor={colors.grey2}
+          value={username}
+          onChangeText={setUsername}
         />
         <TextInput
           style={styles.input}
           placeholder="Password"
           placeholderTextColor={colors.grey2}
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
         />
       </View>
       <TouchableOpacity style={styles.button}>
