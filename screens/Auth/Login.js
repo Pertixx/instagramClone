@@ -3,19 +3,19 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   StyleSheet,
-  Text,
 } from "react-native";
 import { ig_logo, sizes } from "../../constants";
 
 import LoginForm from "../../components/LoginForm";
 import React from "react";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   return (
     <KeyboardAvoidingView style={styles.container}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
+        bounces={false}
       >
         <Image
           source={{ uri: ig_logo }}

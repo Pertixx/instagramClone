@@ -5,14 +5,19 @@ import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View>
         <TextInput
           style={styles.input}
-          placeholder="Username or email"
+          placeholder="Email"
+          placeholderTextColor={colors.grey2}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Username"
           placeholderTextColor={colors.grey2}
         />
         <TextInput
@@ -20,15 +25,6 @@ const LoginForm = () => {
           placeholder="Password"
           placeholderTextColor={colors.grey2}
         />
-        <Text
-          style={{
-            alignSelf: "flex-end",
-            color: colors.lightBlue,
-          }}
-          onPress={() => console.log("Forgot password")}
-        >
-          Forgot password?
-        </Text>
       </View>
       <TouchableOpacity style={styles.button}>
         <Text
@@ -38,7 +34,7 @@ const LoginForm = () => {
             fontSize: sizes.font,
           }}
         >
-          Log in
+          Sign Up
         </Text>
       </TouchableOpacity>
       <View
@@ -47,22 +43,22 @@ const LoginForm = () => {
           justifyContent: "center",
         }}
       >
-        <Text style={{ alignSelf: "center" }}>Dont't have an account? </Text>
+        <Text style={{ alignSelf: "center" }}>Already have an account? </Text>
         <Text
           style={{
             color: colors.lightBlue,
             fontWeight: "bold",
           }}
-          onPress={() => navigation.navigate("Register")}
+          onPress={() => navigation.navigate("Login")}
         >
-          Sign Up
+          Log In
         </Text>
       </View>
     </View>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
 
 const styles = StyleSheet.create({
   container: {
