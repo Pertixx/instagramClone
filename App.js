@@ -1,13 +1,17 @@
 import { StyleSheet, View } from "react-native";
 
 import Navigator from "./navigation";
+import { Provider } from "react-redux";
 import { StatusBar } from "expo-status-bar";
+import { store } from "./redux";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Navigator />
+      <Provider store={store}>
+        <StatusBar style="auto" />
+        <Navigator />
+      </Provider>
     </View>
   );
 }
@@ -15,6 +19,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
   },
 });
